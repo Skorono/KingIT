@@ -1,8 +1,8 @@
 ﻿using KingIT.ModelDB;
 
-namespace KingIT
+namespace KingIT.Views
 {
-    public sealed class User : Person
+    public sealed class User : PersonView
     {
         public User(Employee model) : base(model)
         {
@@ -10,3 +10,5 @@ namespace KingIT
         }
     }
 }
+
+

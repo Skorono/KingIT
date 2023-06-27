@@ -1,8 +1,8 @@
 ﻿using KingIT.ModelDB;
 
-namespace KingIT
+namespace KingIT.Views
 {
-    public sealed class Administrator : Person
+    public sealed class Administrator : PersonView
     {
         public Administrator(Employee model) : base(model)
         {
