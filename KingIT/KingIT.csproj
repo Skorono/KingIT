@@ -22,6 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="ViewControls">
+      <HintPath>..\..\..\..\source\repos\Skorono\WPFLibrary\WpfLibrary\bin\Debug\net6.0-windows\ViewControls.dll</HintPath>
+    </Reference>
     <Reference Include="WpfLibrary">
       <HintPath>..\..\..\..\source\repos\Skorono\WPFLibrary\WpfLibrary\bin\Debug\net6.0-windows\WpfLibrary.dll</HintPath>
     </Reference>

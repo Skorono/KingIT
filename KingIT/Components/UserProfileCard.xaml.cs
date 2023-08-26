@@ -1,5 +1,6 @@
 ﻿using System.Windows.Controls;
-using WpfLibrary.Components.Forms;
+using ViewControls;
+using WpfLibrary.Tools;
 
 namespace KingIT.Components
 {
@@ -8,9 +9,15 @@ namespace KingIT.Components
     /// </summary>
     public partial class UserProfileCard : UserControl
     {
-        public UserProfileCard()
-        {
-            InitializeComponent();
+        public string? Name {
+            set => ((TextBlock)UIHelper.FindUid(Card.Children, "UserName")!).Text = value;
         }
+
+        public byte[] Photo
+        {
+            set => Card.Image = ImageManager.LoadImage(value);
+        }
+
+        public UserProfileCard() => InitializeComponent();
     }
 }

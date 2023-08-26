@@ -1,10 +1,10 @@
-﻿using System.ComponentModel;
+﻿using KingIT.Interfaces;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 namespace KingIT.ModelDB
 {
-    public class Employee
+    public class Employee: IUser
     {
         public int ID { get; set; }
 
@@ -27,8 +27,10 @@ namespace KingIT.ModelDB
 
         public byte[]? Photo { get; set; }
 
-        public bool? Gender { get; set; }
+        public bool Gender { get; set; }
 
+        public char RoleID { get; set; }
+ 
         public UserStatus Status { get; set; } = null!;
         public Role Role { get; set; } = null!;
     }

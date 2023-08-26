@@ -17,6 +17,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FFB7B4B4">
         <WpfLibraryAuth:AuthFirstForm x:Name="RegistrationArea"> </WpfLibraryAuth:AuthFirstForm>
+        <ListBox x:Name="List"  Width="200" Height="350" HorizontalAlignment="Right">
+            
+        </ListBox>
         <Frame x:Name="MainFrame"></Frame>
     </Grid>
 </Window>

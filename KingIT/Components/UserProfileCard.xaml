@@ -6,10 +6,18 @@
              xmlns:WpfLibrary="clr-namespace:WpfLibrary.Components.Forms;assembly=WpfLibrary"
              xmlns:local="clr-namespace:KingIT.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
-        <!--<WpfLibrary:Item>
-            
-        </WpfLibrary:Item>-->
+        <WpfLibrary:Item x:Name="Card">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Uid="UserName" Text="{Binding Path=this.Name, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left"></TextBlock>
+            </Grid>
+        </WpfLibrary:Item>
     </Grid>
 </UserControl>

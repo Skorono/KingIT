@@ -1,8 +1,13 @@
-﻿using KingIT.EntitiesStatus;
-using KingIT.ModelDB;
-using Microsoft.IdentityModel.Tokens;
+﻿using KingIT.ModelDB;
+using KingIT.Views;
+using KingIT.Controls;
 using System.Linq;
 using System.Windows;
+using KingIT.Interfaces;
+using KingIT.Components;
+using System.Windows.Controls;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace KingIT
 {
@@ -11,6 +16,8 @@ namespace KingIT
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ViewController<IUser> userController = default!;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,9 +31,9 @@ namespace KingIT
             //NavigationService.GetNavigationService(this).Navigate();
         }
 
-        public Employee? GetEmployee()
+        private Employee? GetEmployee()
         {
-            return BaseProvider.DbContext.Employees.Where(emp => emp.Email == RegistrationArea.Login && emp.Password == RegistrationArea.Password).FirstOrDefault();
+            return BaseProvider.DbContext.Employees.SingleOrDefault(emp => emp.Email == RegistrationArea.Login && emp.Password == RegistrationArea.Password);
         }
 
         private bool UserExists()
@@ -36,7 +43,8 @@ namespace KingIT
 
         public void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            var Employee = GetEmployee();
+            RegistrationArea.UserName = default!;
+            Employee? Employee = GetEmployee();
             if (Employee != null)
                 RegistrationArea.UserName = Employee.Name;
         }
@@ -50,11 +58,33 @@ namespace KingIT
                 Role = BaseProvider.DbContext.Roles.Where(r => r.ID == UserTypes.User).First(), 
                 Status = BaseProvider.DbContext.UserStatuses.Where(r => r.ID == AccountStatuses.Active).First()
             };*/
-
-            if (UserExists())
+            IUser? emp = GetEmployee();
+            if (emp == null)
             {
-
+                return;
             }
+
+            switch (emp.RoleID) {
+                case UserTypes.Administrator:
+                    {
+                        userController = new Administrator(emp); break;
+                    }
+                case UserTypes.User:
+                    {
+                        userController = new User(emp); break;
+                    }
+                default: return;
+            }
+
+            var ListUsers = new List<UserControl>();
+            foreach (var user in BaseProvider.DbContext.Employees)
+            {
+                ViewController<IUser> uController = new(user);
+                var view = new UserProfileCard();
+                uController.SetView<UserProfileCard>(view);
+                ListUsers.Add(view);
+            }
+            List.ItemsSource = ListUsers;
         }
     }
 }
