@@ -16,7 +16,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock Uid="UserName" Text="{Binding Path=this.Name, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left"></TextBlock>
+                <TextBlock x:Uid="UserName" Text="{Binding Path=this.Name, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left"></TextBlock>
             </Grid>
         </WpfLibrary:Item>
     </Grid>

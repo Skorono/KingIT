@@ -14,8 +14,8 @@
         xmlns:local="clr-namespace:KingIT"
         xmlns:WpfLibraryAuth="clr-namespace:WpfLibrary.Components.Auth;assembly=WpfLibrary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#FFB7B4B4">
+        Title="MainWindow" Height="auto" Width="auto">
+    <Grid x:Name="MainGrid" Background="#FFB7B4B4">
         <WpfLibraryAuth:AuthFirstForm x:Name="RegistrationArea"> </WpfLibraryAuth:AuthFirstForm>
         <ListBox x:Name="List"  Width="200" Height="350" HorizontalAlignment="Right">
             

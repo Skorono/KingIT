@@ -5,9 +5,7 @@ using System.Linq;
 using System.Windows;
 using KingIT.Interfaces;
 using KingIT.Components;
-using System.Windows.Controls;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using KingIT.Pages;
 
 namespace KingIT
 {
@@ -16,6 +14,7 @@ namespace KingIT
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int AuthTryNumber = 0;
         private ViewController<IUser> userController = default!;
 
         public MainWindow()
@@ -33,7 +32,8 @@ namespace KingIT
 
         private Employee? GetEmployee()
         {
-            return BaseProvider.DbContext.Employees.SingleOrDefault(emp => emp.Email == RegistrationArea.Login && emp.Password == RegistrationArea.Password);
+            return BaseProvider.DbContext.Employees.SingleOrDefault(emp =>
+                emp.Email == RegistrationArea.Login && emp.Password == RegistrationArea.Password);
         }
 
         private bool UserExists()
@@ -49,6 +49,20 @@ namespace KingIT
                 RegistrationArea.UserName = Employee.Name;
         }
 
+        public void OnAuthFailed()
+        {
+            if (++AuthTryNumber >= 3)
+            {
+                var capcha = new Capcha(new Capcha.CapchaArgs()
+                {
+                    Layout = MainGrid,
+                    Vertical = VerticalAlignment.Center,
+                    Horizontal = HorizontalAlignment.Center
+                });
+                capcha.Show();
+            }
+        }
+
         public void AuthAction(object sender, RoutedEventArgs e)
         {
             /*var User = new Employee { 
@@ -61,30 +75,26 @@ namespace KingIT
             IUser? emp = GetEmployee();
             if (emp == null)
             {
+                OnAuthFailed();
                 return;
             }
 
-            switch (emp.RoleID) {
+            switch (emp.RoleID)
+            {
                 case UserTypes.Administrator:
-                    {
-                        userController = new Administrator(emp); break;
-                    }
+                {
+                    userController = new Administrator(emp);
+                    break;
+                }
                 case UserTypes.User:
-                    {
-                        userController = new User(emp); break;
-                    }
+                {
+                    userController = new User(emp);
+                    break;
+                }
                 default: return;
             }
 
-            var ListUsers = new List<UserControl>();
-            foreach (var user in BaseProvider.DbContext.Employees)
-            {
-                ViewController<IUser> uController = new(user);
-                var view = new UserProfileCard();
-                uController.SetView<UserProfileCard>(view);
-                ListUsers.Add(view);
-            }
-            List.ItemsSource = ListUsers;
+            if (userController != null) MainFrame.Navigate(new EmployeesPage());
         }
     }
 }

@@ -18,16 +18,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\" />
+    <Reference Include="ViewControls">
+      <HintPath>..\..\WPFLibrary\WpfLibrary\bin\Debug\net6.0-windows\ViewControls.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfLibrary">
+      <HintPath>..\..\WPFLibrary\WpfLibrary\bin\Debug\net6.0-windows\WpfLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ViewControls">
-      <HintPath>..\..\..\..\source\repos\Skorono\WPFLibrary\WpfLibrary\bin\Debug\net6.0-windows\ViewControls.dll</HintPath>
-    </Reference>
-    <Reference Include="WpfLibrary">
-      <HintPath>..\..\..\..\source\repos\Skorono\WPFLibrary\WpfLibrary\bin\Debug\net6.0-windows\WpfLibrary.dll</HintPath>
-    </Reference>
+    <Folder Include="Assets\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Images\refresh-icon-4.png" />
+    <None Remove="Assets\Images\refresh-icon-4-transformed.png" />
+    <Resource Include="Assets\Images\refresh-icon-4-transformed.png" />
   </ItemGroup>
 
 </Project>

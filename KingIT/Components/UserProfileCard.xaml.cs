@@ -9,13 +9,20 @@ namespace KingIT.Components
     /// </summary>
     public partial class UserProfileCard : UserControl
     {
-        public string? Name {
-            set => ((TextBlock)UIHelper.FindUid(Card.Children, "UserName")!).Text = value;
-        }
+        public int ID { get; set; }
 
+        public string? Name
+        {
+            set
+            {
+                TextBlock? NameField = (TextBlock?)UIHelper.FindUid(Card.Children, "UserName"); 
+                if (NameField != null ) NameField.Text = value;
+            }
+        }
+        
         public byte[] Photo
         {
-            set => Card.Image = ImageManager.LoadImage(value);
+            set => Card.ItemImage = ImageManager.LoadImage(value);
         }
 
         public UserProfileCard() => InitializeComponent();
