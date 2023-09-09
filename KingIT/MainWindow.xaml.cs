@@ -1,4 +1,5 @@
-﻿using KingIT.ModelDB;
+﻿using System.ComponentModel.DataAnnotations;
+using KingIT.ModelDB;
 using KingIT.Views;
 using KingIT.Controls;
 using System.Linq;
@@ -6,6 +7,8 @@ using System.Windows;
 using KingIT.Interfaces;
 using KingIT.Components;
 using KingIT.Pages;
+using WpfLibrary;
+using WpfLibrary.Components.Auth;
 
 namespace KingIT
 {
@@ -51,6 +54,13 @@ namespace KingIT
 
         public void OnAuthFailed()
         {
+            var validator = new ObjValidator<AuthFirstForm>(RegistrationArea);
+            if (!(validator.isValid(RegistrationArea.Login, nameof(RegistrationArea.Login)) 
+                  && validator.isValid(RegistrationArea.Password, nameof(RegistrationArea.Password))))
+                MessageBox.Show("Проверьте формат введенных данных");
+            else
+                MessageBox.Show("Неверный логин или пароль");
+
             if (++AuthTryNumber >= 3)
             {
                 var capcha = new Capcha(new Capcha.CapchaArgs()
@@ -72,6 +82,7 @@ namespace KingIT
                 Role = BaseProvider.DbContext.Roles.Where(r => r.ID == UserTypes.User).First(), 
                 Status = BaseProvider.DbContext.UserStatuses.Where(r => r.ID == AccountStatuses.Active).First()
             };*/
+            
             IUser? emp = GetEmployee();
             if (emp == null)
             {
