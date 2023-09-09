@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Microsoft.EntityFrameworkCore;
 
 namespace KingIT
 {
@@ -7,6 +8,6 @@ namespace KingIT
     /// </summary>
     public partial class App : Application
     {
-        public App() => BaseProvider.DbContext.Database.EnsureCreated();
+        public App() => BaseProvider.DbContext.Database.Migrate();
     }
 }
