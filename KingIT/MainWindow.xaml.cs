@@ -18,7 +18,7 @@ namespace KingIT
     public partial class MainWindow : Window
     {
         private int AuthTryNumber = 0;
-        private ViewController<IUser> userController = default!;
+        private ViewController<IUser>? userController = default!;
 
         public MainWindow()
         {

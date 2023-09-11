@@ -8,6 +8,13 @@ namespace KingIT
     /// </summary>
     public partial class App : Application
     {
-        public App() => BaseProvider.DbContext.Database.Migrate();
+        public App()
+        {
+            /*BaseProvider.DbContext.Database.EnsureDeleted();
+            BaseProvider.DbContext.Database.Migrate();*/
+        }
+
+
+
     }
 }

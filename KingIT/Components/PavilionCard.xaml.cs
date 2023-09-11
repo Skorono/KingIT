@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KingIT.Interfaces;
 
 namespace KingIT.Components
 {
@@ -20,9 +21,20 @@ namespace KingIT.Components
     /// </summary>
     public partial class PavilionCard : UserControl
     {
+        public int FloorNumber { get; set; }
+        public string Number { get; set; } = null!;
+        public float Square { get; set; }
+        public float AddedCoefficient { get; set; }
+        public int Cost { get; set; }
+
         public PavilionCard()
         {
             InitializeComponent();
+        }
+
+        void SetProperty(string property)
+        {
+            
         }
     }
 }
