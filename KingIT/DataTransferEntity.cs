@@ -1,10 +1,9 @@
 ﻿using KingIT.Interfaces;
 
-namespace KingIT
+namespace KingIT;
+
+public abstract class DataTransferEntity<T> : INamedDataTransfer<T>
 {
-    public abstract class DataTransferEntity<T> : INamedDataTransfer<T>
-    {
-        public T ID { get; set; }
-        public string Name { get; set; } = null!;
-    }
+    public T ID { get; set; }
+    public string Name { get; set; } = null!;
 }

@@ -1,9 +1,8 @@
-﻿namespace KingIT
+﻿namespace KingIT;
+
+public static class UserTypes
 {
-    public static class UserTypes
-    {
-        public const char Administrator = 'A';
-        public const char User = 'U';
-        public const char Manager = 'M';
-    }
+    public const char Administrator = 'A';
+    public const char User = 'U';
+    public const char Manager = 'M';
 }

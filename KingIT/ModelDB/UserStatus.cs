@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace KingIT.ModelDB
+namespace KingIT.ModelDB;
+
+public class UserStatus : DataTransferEntity<char>
 {
-    public class UserStatus : DataTransferEntity<char>
-    {
-        public ICollection<Employee> Employees { get; set; } = new List<Employee>();
-    }
+    public ICollection<Employee> Employees { get; set; } = new List<Employee>();
 }

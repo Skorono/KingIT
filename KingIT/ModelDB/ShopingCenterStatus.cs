@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace KingIT.ModelDB
+namespace KingIT.ModelDB;
+
+public class ShopingCenterStatus : DataTransferEntity<char>
 {
-    public class ShopingCenterStatus : DataTransferEntity<char>
-    {
-        public ICollection<ShoppingСenter> ShoppingCenters { get; set; } = new List<ShoppingСenter>();
-    }
+    public ICollection<ShoppingСenter> ShoppingCenters { get; set; } = new List<ShoppingСenter>();
 }

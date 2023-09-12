@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ViewControls.Controls;
+﻿using System.Windows;
 using KingIT.Components;
 using KingIT.Interfaces;
-using KingIT.Views;
 
 namespace KingIT.Controls;
+
 public partial class EmployeeList
 {
+    private RoutedEventHandler _doubleClickEvent;
     public EmployeeList()
     {
         InitializeComponent();
@@ -19,11 +18,17 @@ public partial class EmployeeList
         {
             if (ListArea.Exists(card => (card as UserProfileCard).ID == emp.ID))
                 continue;
-            
+
             var viewController = new ViewController<IUser>(emp);
-            UserProfileCard card = new UserProfileCard();
+            var card = new UserProfileCard();
             viewController.SetView(card);
+            card.Card.DoubleClick += _doubleClickEvent;
             ListArea.Add(card);
-        }    
+        }
+    }
+    
+    public void SetDoubleClickEvent(RoutedEventHandler newEvent)
+    {
+        _doubleClickEvent = newEvent;
     }
 }
