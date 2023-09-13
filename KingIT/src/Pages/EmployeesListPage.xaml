@@ -1,4 +1,4 @@
-﻿<Page x:Class="KingIT.Pages.EmployeesPage"
+﻿<Page x:Class="KingIT.Pages.EmployeesListPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -6,7 +6,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:controls="clr-namespace:KingIT.Controls"
       mc:Ignorable="d"
-      Title="EmployeesPage" Height="auto" Width="auto">
+      Title="EmployeesPage" Height="auto" Width="450">
     <Grid Background="Cornsilk">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".35*" />
@@ -18,7 +18,31 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <materialDesign:Card Grid.ColumnSpan="2" Background="LightGray" UniformCornerRadius="10" Margin="0 0 0 5" />
+        <materialDesign:Card Grid.ColumnSpan="2" Background="LightGray" UniformCornerRadius="10" Margin="0 0 0 5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                
+                <Border  Grid.Row="1" Grid.Column="3" Background="DarkGray" BorderBrush="DarkGray" BorderThickness="2" CornerRadius="6">
+                    <Button Click="ToAuthPage" BorderBrush="DarkGray" Margin="2" Background="DarkGray">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Left" Width="15" Height="15" Source="../../Assets/Images/png-transparent-television-kanal-9-logo-reload-television-angle-image-file-formats-transformed.png" />
+                            <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Right">Выйти</TextBlock>
+                        </DockPanel>
+                    </Button>
+                </Border>
+            </Grid>
+        </materialDesign:Card>
 
         <Border Background="MediumSeaGreen" BorderThickness="2" BorderBrush="Black" CornerRadius="10" Grid.Row="1"
                 VerticalAlignment="Top" Margin="5" Width="90" Height="90">

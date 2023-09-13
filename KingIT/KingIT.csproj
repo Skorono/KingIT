@@ -42,7 +42,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Page Update="src\Pages\EmployeesPage.xaml">
+        <Page Update="src\Pages\EmployeesListPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </Page>
         <Page Update="src\Controls\EmployeeList.xaml">

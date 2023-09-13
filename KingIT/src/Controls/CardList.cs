@@ -1,41 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using KingIT.Components;
 using Microsoft.EntityFrameworkCore;
+using ViewControls.Controls;
+using WpfLibrary.Components.Forms;
 
 namespace KingIT.Controls;
 
 public class CardList<T>: UserControl where T: class 
 {
-    private RoutedEventHandler? _doubleClickEvent;
-    private HashSet<IViewCard> _elementList = default!;
-    private Type _cardViewType;
+    protected RoutedEventHandler? _doubleClickEvent;
+    protected Type _cardViewType = typeof(Item);
+    protected UIArea ListArea = new UIArea();
     
-    public CardList()
+    protected CardList()
     {
-        
+    }
+    
+    public CardList(IViewCard cardType)
+    {
+        SetCardView(cardType);
     }
 
     public virtual void Update(DbSet<T> dbSource)
     {
-        foreach (var pav in dbSource)
+        ListArea.Clear();
+        foreach (var el in dbSource)
         {
-            var viewcontroller = new ViewController<T>(pav);
+            var viewcontroller = new ViewController<T>(el);
             var card = (IViewCard)Activator.CreateInstance(_cardViewType)!;
             viewcontroller.SetView((UserControl)card);
             card.ItemCard.DoubleClick += _doubleClickEvent;
-            _elementList.Add(card);
+            ListArea.Add((UIElement)card);
         }
     }
 
-    public void SetCardView(IViewCard cardType)
+    public virtual void SetCardView(IViewCard cardType)
     {
         _cardViewType = cardType.GetType();
     }
     
-    public void SetDoubleClickEvent(RoutedEventHandler newEvent)
+    public virtual void SetDoubleClickEvent(RoutedEventHandler newEvent)
     {
         _doubleClickEvent = newEvent;
     }
