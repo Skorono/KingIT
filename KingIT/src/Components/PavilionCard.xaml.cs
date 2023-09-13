@@ -1,4 +1,6 @@
 ﻿using System.Windows.Controls;
+using Microsoft.EntityFrameworkCore.Metadata;
+using WpfLibrary.Components.Forms;
 using WpfLibrary.Tools;
 
 namespace KingIT.Components;
@@ -6,13 +8,14 @@ namespace KingIT.Components;
 /// <summary>
 ///     Логика взаимодействия для PavilionCard.xaml
 /// </summary>
-public partial class PavilionCard : UserControl
+public partial class PavilionCard : UserControl, IViewCard
 {
     public PavilionCard()
     {
         InitializeComponent();
     }
 
+    public int ID { get; set; }
     public byte[] Photo
     {
         set => Card.ItemImage = ImageManager.LoadImage(value);
@@ -24,7 +27,8 @@ public partial class PavilionCard : UserControl
     public float Square { get; set; }
     public float AddedCoefficient { get; set; }
     public int Cost { get; set; }
-
+    
+    public Item ItemCard => Card; 
     private void SetProperty(string property)
     {
     }

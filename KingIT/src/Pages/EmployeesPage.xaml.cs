@@ -13,7 +13,7 @@ public partial class EmployeesPage : Page
     private void RefreshEmployee(object sender, RoutedEventArgs e)
     {
         EmpList.SetDoubleClickEvent(ToCardPage);
-        EmpList.Update();
+        EmpList.Update(BaseProvider.DbContext.Employees);
     }
 
     private void ToCardPage(object sender, RoutedEventArgs e)
