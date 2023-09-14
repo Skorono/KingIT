@@ -4,6 +4,7 @@ using KingIT.Components;
 using KingIT.Controls;
 using KingIT.Interfaces;
 using KingIT.ModelDB;
+using KingIT.Pages;
 using KingIT.Views;
 using WpfLibrary;
 using WpfLibrary.Components.Auth;
@@ -13,10 +14,10 @@ namespace KingIT;
 /// <summary>
 ///     Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow
+public partial class MainWindow : Window
 {
-    private int _authTryNumber;
-    private ViewController<IUser>? _userController;
+    private int AuthTryNumber;
+    private ViewController<IUser>? userController;
 
     public MainWindow()
     {
@@ -26,7 +27,7 @@ public partial class MainWindow
         RegistrationArea.OnPasswordEnter += OnPasswordChanged;
     }
 
-    private void ToRegistrationPage(object sender, RoutedEventArgs e)
+    public void ToRegistrationPage(object sender, RoutedEventArgs e)
     {
         //NavigationService.GetNavigationService(this).Navigate();
     }
@@ -42,15 +43,15 @@ public partial class MainWindow
         return GetEmployee() != null;
     }
 
-    private void OnPasswordChanged(object sender, RoutedEventArgs e)
+    public void OnPasswordChanged(object sender, RoutedEventArgs e)
     {
         RegistrationArea.UserName = default!;
-        var employee = GetEmployee();
-        if (employee != null)
-            RegistrationArea.UserName = employee.Name;
+        var Employee = GetEmployee();
+        if (Employee != null)
+            RegistrationArea.UserName = Employee.Name;
     }
 
-    private void OnAuthFailed()
+    public void OnAuthFailed()
     {
         var validator = new ObjValidator<AuthFirstForm>(RegistrationArea);
         if (!(validator.isValid(RegistrationArea.Login, nameof(RegistrationArea.Login))
@@ -59,7 +60,7 @@ public partial class MainWindow
         else
             MessageBox.Show("Неверный логин или пароль");
 
-        if (++_authTryNumber >= 3)
+        if (++AuthTryNumber >= 3)
         {
             var capcha = new Capcha(new Capcha.CapchaArgs
             {
@@ -71,7 +72,7 @@ public partial class MainWindow
         }
     }
 
-    private void AuthAction(object sender, RoutedEventArgs e)
+    public void AuthAction(object sender, RoutedEventArgs e)
     {
         /*var User = new Employee { 
             Email = RegistrationArea.Login, 
@@ -92,17 +93,17 @@ public partial class MainWindow
         {
             case UserTypes.Administrator:
             {
-                _userController = new Administrator(emp);
+                userController = new Administrator(emp);
                 break;
             }
             case UserTypes.User:
             {
-                _userController = new User(emp);
+                userController = new User(emp);
                 break;
             }
             default: return;
         }
 
-        if (_userController != null) MainFrame.Navigate(null);
+        if (userController != null) MainFrame.Navigate(new MainPage());
     }
 }
