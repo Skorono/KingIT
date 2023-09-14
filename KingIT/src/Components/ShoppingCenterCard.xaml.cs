@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls;
-using MaterialDesignThemes.Wpf;
 using WpfLibrary.Components.Forms;
 
 namespace KingIT.Components;

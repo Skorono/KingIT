@@ -7,7 +7,7 @@
       xmlns:controls="clr-namespace:KingIT.Controls"
       mc:Ignorable="d"
       Title="EmployeesPage" Height="auto" Width="450">
-    <Grid Background="Cornsilk">
+    <Grid Background="DarkSlateGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".35*" />
             <ColumnDefinition />
@@ -53,7 +53,7 @@
         </Border>
 
         <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" BorderBrush="Black" CornerRadius="10">
-            <controls:EmployeeList x:Name="EmpList" />
+            <controls:EmployeeList Margin="2" x:Name="EmpList" />
         </Border>
     </Grid>
 </Page>

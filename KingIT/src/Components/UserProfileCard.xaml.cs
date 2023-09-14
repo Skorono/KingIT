@@ -27,6 +27,8 @@ public partial class UserProfileCard : UserControl, IViewCard
         }
     }
     
+    
+    
     public Item ItemCard => Card;
     public byte[] Photo
     {

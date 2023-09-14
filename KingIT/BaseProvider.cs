@@ -22,13 +22,7 @@ public static class BaseProvider
 
         private set { }
     }
-
-    /// <summary>
-    ///     Provide to call stored procedure from DB
-    /// </summary>
-    /// <param name="procedure"></param>
-    /// <param name="parameters"></param>
-    /// <returns></returns>
+    
     private static string GetSQLRaw(string procedure, params SqlParameter[] parameters)
     {
         var sqlRequest = new StringBuilder("EXEC ").AppendFormat(@"{0} ", procedure);
@@ -44,6 +38,12 @@ public static class BaseProvider
         return sqlRequest.ToString();
     }
 
+    /// <summary>
+    ///     Provide to call stored procedure from DB
+    /// </summary>
+    /// <param name="procedure"></param>
+    /// <param name="parameters"></param>
+    /// <returns></returns>
     public static int CallStoredProcedureByName(string procedure, params SqlParameter[] parameters)
     {
         return dbContext.Database.ExecuteSqlRaw(GetSQLRaw(procedure, parameters), parameters);
@@ -52,6 +52,16 @@ public static class BaseProvider
     public static void Update()
     {
         dbContext = new KingITContext();
+    }
+
+    /// <summary>
+    /// Delete the current database, if it already exists, and move it to the new statement
+    /// TODO: Migration must save data before performing migrate
+    /// </summary>
+    public static void Migrate()
+    {
+        DbContext.Database.EnsureDeleted();
+        DbContext.Database.Migrate();
     }
 
     /*public static List<T> GetView<T>(string viewName)

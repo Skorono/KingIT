@@ -9,7 +9,6 @@ public partial class EmployeesListPage : Page
     public EmployeesListPage()
     {
         InitializeComponent();
-        EmpList.SetCardView(new UserProfileCard());
         EmpList.SetDoubleClickEvent(ToCardPage);
     }
     

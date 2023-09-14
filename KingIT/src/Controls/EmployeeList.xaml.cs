@@ -1,4 +1,5 @@
-﻿using KingIT.ModelDB;
+﻿using KingIT.Components;
+using KingIT.ModelDB;
 
 namespace KingIT.Controls;
 
@@ -8,5 +9,6 @@ public partial class EmployeeList: CardList<Employee>
     {
         InitializeComponent();
         grid.Children.Add(ListArea);
+        SetCardView(new UserProfileCard());
     }
 }
