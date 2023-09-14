@@ -104,6 +104,6 @@ public partial class MainWindow : Window
             default: return;
         }
 
-        if (userController != null) MainFrame.Navigate(new EmployeesListPage());
+        if (userController != null) MainFrame.Navigate(new MainPage());
     }
 }

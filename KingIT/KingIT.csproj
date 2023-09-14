@@ -42,10 +42,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Page Update="src\Pages\EmployeesListPage.xaml">
+        <Page Update="src\Pages\MainPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </Page>
-        <Page Update="src\Controls\EmployeeList.xaml">
+        <Page Update="src\Controls\EmployeeCardFactory">
             <Generator>MSBuild:Compile</Generator>
         </Page>
         <Page Update="src\Components\PavilionCard.xaml">
