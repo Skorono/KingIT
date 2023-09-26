@@ -8,13 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MaterialDesignThemes" Version="4.9.0"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7"/>
+        <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.7">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.7"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.7" />
     </ItemGroup>
 
     <ItemGroup>
@@ -27,26 +27,25 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Assets\Images\refresh-icon-4.png"/>
-        <None Remove="Assets\Images\refresh-icon-4-transformed.png"/>
+        <None Remove="Assets\Images\refresh-icon-4.png" />
+        <None Remove="Assets\Images\refresh-icon-4-transformed.png" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Assets\Images\"/>
-        <Folder Include="src\"/>
+        <Folder Include="Assets\Images\" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Assets\Images\reload-refresh-1024.webp"/>
-        <None Remove="Assets\Images\png-transparent-television-kanal-9-logo-reload-television-angle-image-file-formats-transformed.png"/>
-        <Resource Include="Assets\Images\png-transparent-television-kanal-9-logo-reload-television-angle-image-file-formats-transformed.png"/>
+        <None Remove="Assets\Images\reload-refresh-1024.webp" />
+        <None Remove="Assets\Images\png-transparent-television-kanal-9-logo-reload-television-angle-image-file-formats-transformed.png" />
+        <Resource Include="Assets\Images\png-transparent-television-kanal-9-logo-reload-television-angle-image-file-formats-transformed.png" />
     </ItemGroup>
 
     <ItemGroup>
-        <Page Update="src\Pages\EmployeesPage.xaml">
+        <Page Update="src\Pages\MainPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </Page>
-        <Page Update="src\Controls\EmployeeList.xaml">
+        <Page Update="src\Controls\EmployeeCardFactory">
             <Generator>MSBuild:Compile</Generator>
         </Page>
         <Page Update="src\Components\PavilionCard.xaml">

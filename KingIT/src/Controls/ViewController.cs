@@ -11,7 +11,7 @@ public class ViewController<T>
 
     protected T Model { get; set; }
 
-    public void SetView<K>(K view) where K : Control
+    public void SetView(Control view)
     {
         foreach (var userP in typeof(T).GetProperties())
         {
