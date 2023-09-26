@@ -4,11 +4,12 @@ using KingIT.Components;
 
 namespace KingIT.Controls;
 
-public abstract class CardFactory 
+public abstract class CardFactory
 {
     protected RoutedEventHandler? _doubleClickEvent;
     protected Type _cardViewType = default;
-    public abstract IViewCard MakeCard(object model);
+    
+    public abstract IViewCard Make(object model);
     
 
     /*public virtual void Update(DbSet<T> dbSource)

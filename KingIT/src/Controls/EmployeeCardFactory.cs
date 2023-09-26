@@ -12,7 +12,7 @@ public class EmployeeCardFactory: CardFactory
         SetCardView(new UserProfileCard());
     }
 
-    public override IViewCard MakeCard(object model)
+    public override IViewCard Make(object model)
     {
         var viewcontroller = new ViewController<Employee>((Employee)model);
         var card = (IViewCard)Activator.CreateInstance(_cardViewType)!;

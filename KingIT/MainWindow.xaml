@@ -12,7 +12,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:WpfLibraryAuth="clr-namespace:WpfLibrary.Components.Auth;assembly=WpfLibrary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="auto" Width="auto">
+        Title="MainWindow" Height="900" Width="900" MinHeight="700" MaxWidth="700">
     <Grid x:Name="MainGrid" Background="#FFB7B4B4">
         <WpfLibraryAuth:AuthFirstForm x:Name="RegistrationArea" />
         <ListBox x:Name="List" Width="200" Height="350" HorizontalAlignment="Right" />

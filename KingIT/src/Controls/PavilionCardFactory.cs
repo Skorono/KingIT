@@ -12,7 +12,7 @@ public class PavilionCardFactory : CardFactory
     {
         SetCardView(new PavilionCard());
     }
-    public override IViewCard MakeCard(object model)
+    public override IViewCard Make(object model)
     {
         var viewcontroller = new ViewController<Pavilion>((Pavilion)model);
         var card = (IViewCard)Activator.CreateInstance(_cardViewType)!;

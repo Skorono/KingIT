@@ -6,8 +6,8 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:controls="clr-namespace:KingIT.Controls"
       mc:Ignorable="d"
-      Title="EmployeesPage" Height="auto" Width="450">
-    <Grid Background="Cornsilk">
+      Title="EmployeesPage" Height="auto" Width="auto">
+    <Grid Background="Cornsilk" x:Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".35*" />
             <ColumnDefinition />
@@ -46,14 +46,13 @@
 
         <Border Background="MediumSeaGreen" BorderThickness="2" BorderBrush="Black" CornerRadius="10" Grid.Row="1"
                 VerticalAlignment="Top" Margin="5" Width="90" Height="90">
-            <Button Click="RefreshEmployee" Margin="2" BorderBrush="MediumSeaGreen" Background="MediumSeaGreen">
+            <Button Click="Refresh" Margin="2" BorderBrush="MediumSeaGreen" Background="MediumSeaGreen">
                 <Image Margin="3"
                        Source="../../Assets/Images/png-transparent-television-kanal-9-logo-reload-television-angle-image-file-formats-transformed.png" />
             </Button>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" BorderBrush="Black" CornerRadius="10">
-            <controls:CardListFactory x:Name="EmpList" />
+        <Border x:Name="ListBorder" Grid.Row="1" Grid.Column="1" BorderThickness="2" BorderBrush="Black" CornerRadius="10">
         </Border>
     </Grid>
 </Page>

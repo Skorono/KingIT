@@ -1,17 +1,28 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
+using KingIT.Components;
+using KingIT.Controls;
 
 namespace KingIT.Pages;
 
 public partial class MainPage : Page
 {
+    private CardList? EntityCardList = default!;
+    private CardFactory? CurrentFactory = default!;
     public MainPage()
     {
         InitializeComponent();
+        CurrentFactory = new EmployeeCardFactory();
+        CurrentFactory.SetDoubleClickEvent(ToAuthPage);
+        CurrentFactory.SetCardView(new UserProfileCard());
+        EntityCardList = new CardList(CurrentFactory);
+        ListBorder.Child = EntityCardList;
     }
     
-    private void RefreshEmployee(object sender, RoutedEventArgs e)
+    private void Refresh(object sender, RoutedEventArgs e)
     {
+        EntityCardList.Update(BaseProvider.DbContext.Employees.ToList());
         //EmpList.Update(BaseProvider.DbContext.Employees);
     }
 
