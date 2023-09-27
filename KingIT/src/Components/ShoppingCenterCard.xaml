@@ -8,9 +8,9 @@
              d:DesignHeight="300" d:DesignWidth="300"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
-        <WpfLibrary:Item>
+        <WpfLibrary:Item x:Name="Card">
             <StackPanel>
-                <TextBlock Uid="PavilionName" />
+                <TextBlock Uid="ShoppingCenterName" />
                 <TextBlock Uid="Status" />
                 <TextBlock />
             </StackPanel>

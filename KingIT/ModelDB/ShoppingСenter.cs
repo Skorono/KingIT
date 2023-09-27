@@ -7,7 +7,7 @@ public class ShoppingСenter
     public int Cost { get; set; }
     public float AddedCoefficient { get; set; }
     public int FloorsCount { get; set; }
-    public byte[]? Photo { get; set; }
+    public string? Photo { get; set; }
 
     public ShoppingCenterStatus Status { get; set; } = null!;
     public Town Town { get; set; } = null!;

@@ -1,5 +1,5 @@
-﻿using System.Windows.Controls;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System.IO;
+using System.Windows.Controls;
 using WpfLibrary.Components.Forms;
 using WpfLibrary.Tools;
 
@@ -16,9 +16,9 @@ public partial class PavilionCard : UserControl, IViewCard
     }
 
     public int ID { get; set; }
-    public byte[] Photo
+    public string Photo
     {
-        set => Card.ItemImage = ImageManager.LoadImage(value);
+        set => Card.ItemImage = ImageManager.LoadImage(ImageManager.Upload(Path.GetFullPath(value)));
     }
 
     public int FloorNumber { get; set; }

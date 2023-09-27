@@ -33,6 +33,7 @@
 
     <ItemGroup>
         <Folder Include="Assets\Images\" />
+        <Folder Include="Migrations\" />
     </ItemGroup>
 
     <ItemGroup>
