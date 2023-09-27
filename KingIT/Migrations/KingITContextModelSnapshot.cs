@@ -244,17 +244,17 @@ namespace KingIT.Migrations
                         },
                         new
                         {
-                            ID = "U",
-                            Name = "User"
+                            ID = "E",
+                            Name = "ManagerA"
                         },
                         new
                         {
-                            ID = "M",
-                            Name = "Manager"
+                            ID = "C",
+                            Name = "ManagerC"
                         });
                 });
 
-            modelBuilder.Entity("KingIT.ModelDB.ShopingCenterStatus", b =>
+            modelBuilder.Entity("KingIT.ModelDB.ShoppingCenterStatus", b =>
                 {
                     b.Property<string>("ID")
                         .ValueGeneratedOnAdd()
@@ -267,6 +267,28 @@ namespace KingIT.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("ShoppingCenterStatuses");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = "P",
+                            Name = "Plan"
+                        },
+                        new
+                        {
+                            ID = "C",
+                            Name = "Construction"
+                        },
+                        new
+                        {
+                            ID = "R",
+                            Name = "Realization"
+                        },
+                        new
+                        {
+                            ID = "D",
+                            Name = "Deleted"
+                        });
                 });
 
             modelBuilder.Entity("KingIT.ModelDB.ShoppingСenter", b =>
@@ -355,6 +377,11 @@ namespace KingIT.Migrations
                         {
                             ID = "F",
                             Name = "Freezed"
+                        },
+                        new
+                        {
+                            ID = "D",
+                            Name = "Deleted"
                         });
                 });
 
@@ -436,7 +463,7 @@ namespace KingIT.Migrations
 
             modelBuilder.Entity("KingIT.ModelDB.ShoppingСenter", b =>
                 {
-                    b.HasOne("KingIT.ModelDB.ShopingCenterStatus", "Status")
+                    b.HasOne("KingIT.ModelDB.ShoppingCenterStatus", "Status")
                         .WithMany("ShoppingCenters")
                         .HasForeignKey("StatusID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -463,7 +490,7 @@ namespace KingIT.Migrations
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("KingIT.ModelDB.ShopingCenterStatus", b =>
+            modelBuilder.Entity("KingIT.ModelDB.ShoppingCenterStatus", b =>
                 {
                     b.Navigation("ShoppingCenters");
                 });

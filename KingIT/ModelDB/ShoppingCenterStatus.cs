@@ -2,7 +2,7 @@
 
 namespace KingIT.ModelDB;
 
-public class ShopingCenterStatus : DataTransferEntity<char>
+public class ShoppingCenterStatus : DataTransferEntity<char>
 {
     public ICollection<ShoppingСenter> ShoppingCenters { get; set; } = new List<ShoppingСenter>();
 }

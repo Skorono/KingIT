@@ -96,14 +96,19 @@ public partial class MainWindow : Window
                 userController = new Administrator(emp);
                 break;
             }
-            case UserTypes.User:
+            case UserTypes.ManagerA:
             {
-                userController = new User(emp);
+                userController = new ManagerA(emp);
+                break;
+            }
+            case UserTypes.ManagerC:
+            {
+                userController = new ManagerC(emp);
                 break;
             }
             default: return;
         }
 
-        if (userController != null) MainFrame.Navigate(new MainPage());
+        if (userController != null) MainFrame.Navigate(new MainPage(userController));
     }
 }

@@ -9,6 +9,6 @@ public class ShoppingСenter
     public int FloorsCount { get; set; }
     public byte[]? Photo { get; set; }
 
-    public ShopingCenterStatus Status { get; set; } = null!;
+    public ShoppingCenterStatus Status { get; set; } = null!;
     public Town Town { get; set; } = null!;
 }
