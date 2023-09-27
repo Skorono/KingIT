@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows.Controls;
+using Microsoft.IdentityModel.Tokens;
 using ViewControls;
 using WpfLibrary.Components.Forms;
 using WpfLibrary.Tools;
@@ -21,7 +22,14 @@ public partial class ShoppingCenterCard : UserControl, IViewCard
     
     public string? Photo
     {
-        set => Card.ItemImage = ImageManager.LoadImage(ImageManager.Upload(Path.GetRelativePath(App.ResourceAssembly.Location, value)));
+        set
+        {
+            if (!value.IsNullOrEmpty())
+            {
+                Card.ItemImage =
+                    ImageManager.LoadImage(ImageManager.Upload(Path.GetFullPath(value, App.ResourceAssembly.Location)));
+            }
+        }
     }
 
     public ShoppingCenterCard()

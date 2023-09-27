@@ -10,12 +10,30 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:WpfLibraryAuth="clr-namespace:WpfLibrary.Components.Auth;assembly=WpfLibrary"
         mc:Ignorable="d"
         Title="MainWindow" Height="1920" Width="1080" MinHeight="700" MinWidth="700">
     <Grid x:Name="MainGrid" Background="#FFB7B4B4">
-        <WpfLibraryAuth:AuthFirstForm x:Name="RegistrationArea" />
-        <ListBox x:Name="List" Width="200" Height="350" HorizontalAlignment="Right" />
-        <Frame x:Name="MainFrame" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".15*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <materialDesign:Card x:Name="Header" Margin="10" Grid.Row="0" Grid.Column="1" Background="Azure" UniformCornerRadius="10">
+            <Border Margin="15" BorderThickness="2" BorderBrush="Black" CornerRadius="10">
+                <Image Margin="3" Source="Assets/Images/Эмблема.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            </Border>
+        </materialDesign:Card>
+        
+        <WpfLibraryAuth:AuthFirstForm Grid.RowSpan="2" Grid.ColumnSpan="3" x:Name="RegistrationArea" />
+        <Frame Grid.Row="1" Grid.ColumnSpan="3" x:Name="MainFrame" />
+
     </Grid>
 </Window>

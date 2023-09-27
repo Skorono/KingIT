@@ -66,7 +66,9 @@ public partial class MainWindow : Window
             {
                 Layout = MainGrid,
                 Vertical = VerticalAlignment.Center,
-                Horizontal = HorizontalAlignment.Center
+                Horizontal = HorizontalAlignment.Center,
+                CulumnNumber = 1,
+                RowNumber = 1
             });
             capcha.Show();
         }
