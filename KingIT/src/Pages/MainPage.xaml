@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      xmlns:controls="clr-namespace:KingIT.Controls"
       mc:Ignorable="d"
       Title="EmployeesPage" Height="auto" Width="auto">
     <Grid Background="Cornsilk" x:Name="grid">
@@ -26,17 +25,19 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                
-                <Border  Grid.Row="1" Grid.Column="3" Background="DarkGray" BorderBrush="DarkGray" BorderThickness="2" CornerRadius="6">
+
+                <Border Grid.Row="1" Grid.Column="3" Background="DarkGray" BorderBrush="DarkGray" BorderThickness="2"
+                        CornerRadius="6">
                     <Button Click="ToAuthPage" BorderBrush="DarkGray" Margin="2" Background="DarkGray">
                         <DockPanel>
-                            <Image DockPanel.Dock="Left" Width="15" Height="15" Source="../../Assets/Images/png-transparent-television-kanal-9-logo-reload-television-angle-image-file-formats-transformed.png" />
+                            <Image DockPanel.Dock="Left" Width="15" Height="15"
+                                   Source="../../Assets/Images/png-transparent-television-kanal-9-logo-reload-television-angle-image-file-formats-transformed.png" />
                             <TextBlock DockPanel.Dock="Right" HorizontalAlignment="Right">Выйти</TextBlock>
                         </DockPanel>
                     </Button>
@@ -52,7 +53,7 @@
             </Button>
         </Border>
 
-        <Border x:Name="ListBorder" Grid.Row="1" Grid.Column="1" BorderThickness="2" BorderBrush="Black" CornerRadius="10">
-        </Border>
+        <Border x:Name="ListBorder" Grid.Row="1" Grid.Column="1" BorderThickness="2" BorderBrush="Black"
+                CornerRadius="10" />
     </Grid>
 </Page>

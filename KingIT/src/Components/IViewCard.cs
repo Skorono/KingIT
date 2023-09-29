@@ -1,8 +1,10 @@
-﻿using WpfLibrary.Components.Forms;
+﻿using System.Windows;
+using System.Windows.Media.Animation;
+using WpfLibrary.Components.Forms;
 
 namespace KingIT.Components;
 
-public interface IViewCard: System.Windows.IInputElement,  System.Windows.Media.Animation.IAnimatable
+public interface IViewCard : IInputElement, IAnimatable
 {
     public Item ItemCard { get; }
 }

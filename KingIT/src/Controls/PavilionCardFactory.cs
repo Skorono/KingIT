@@ -7,11 +7,11 @@ namespace KingIT.Controls;
 
 public class PavilionCardFactory : CardFactory
 {
-    
     public PavilionCardFactory()
     {
         SetCardView(new PavilionCard());
     }
+
     public override IViewCard Make(object model)
     {
         var viewcontroller = new ViewController<Pavilion>((Pavilion)model);

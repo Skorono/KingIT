@@ -5,7 +5,7 @@ using KingIT.ModelDB;
 
 namespace KingIT.Controls;
 
-public class EmployeeCardFactory: CardFactory
+public class EmployeeCardFactory : CardFactory
 {
     public EmployeeCardFactory()
     {

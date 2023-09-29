@@ -22,7 +22,7 @@ public static class BaseProvider
 
         private set { }
     }
-    
+
     private static string GetSQLRaw(string procedure, params SqlParameter[] parameters)
     {
         var sqlRequest = new StringBuilder("EXEC ").AppendFormat(@"{0} ", procedure);
@@ -55,8 +55,8 @@ public static class BaseProvider
     }
 
     /// <summary>
-    /// Delete the current database, if it already exists, and move it to the new statement
-    /// TODO: Migration must save data before performing migrate
+    ///     Delete the current database, if it already exists, and move it to the new statement
+    ///     TODO: Migration must save data before performing migrate
     /// </summary>
     public static void Migrate()
     {

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
-using KingIT.ModelDB;
 
 namespace KingIT.Controls;
 
 public partial class CardList : UserControl
 {
     private CardFactory EntityCardFactory;
+
     public CardList(CardFactory cardFactory)
     {
         EntityCardFactory = cardFactory;
@@ -18,8 +18,14 @@ public partial class CardList : UserControl
         InitializeComponent();
     }
 
-    public void Update(List<ShoppingСenter> data)
+    public void SetCardFactory(CardFactory cardFactory)
     {
+        EntityCardFactory = cardFactory;
+    }
+
+    public void Update<T>(List<T> data) where T: new()
+    {
+        ListArea.Clear();
         foreach (var card in data)
             ListArea.Add((UserControl)EntityCardFactory.Make(card));
     }

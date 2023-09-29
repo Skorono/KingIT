@@ -1,12 +1,13 @@
-﻿<UserControl x:Class="KingIT.Components.UserProfileCard"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:WpfLibrary="clr-namespace:WpfLibrary.Components.Forms;assembly=WpfLibrary"
-             mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+﻿<components:EntityCard x:Class="KingIT.Components.UserProfileCard"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:WpfLibrary="clr-namespace:WpfLibrary.Components.Forms;assembly=WpfLibrary"
+                       xmlns:components="clr-namespace:KingIT.Components"
+                       mc:Ignorable="d"
+                       d:DesignHeight="450" d:DesignWidth="800"
+                       DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid Width="175" Height="250">
         <WpfLibrary:Item x:Name="Card">
             <Grid>
@@ -20,4 +21,4 @@
             </Grid>
         </WpfLibrary:Item>
     </Grid>
-</UserControl>
+</components:EntityCard>

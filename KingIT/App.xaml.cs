@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace KingIT;
 
@@ -9,6 +10,7 @@ public partial class App : Application
 {
     public App()
     {
+        Environment.SetEnvironmentVariable("ImagePath", "../../../../Assets/Images/");
         BaseProvider.DbContext.SaveChanges();
         /*if (!BaseProvider.DbContext.Database.CanConnect())
             BaseProvider.DbContext.Database.Migrate();*/

@@ -1,6 +1,5 @@
 ﻿namespace KingIT;
 
-
 /*public static class EntityBuilder
 {
     public static List<Entity>? GetData<Entity>(Type DataSourceT) where Entity : DataTransferEntity<object>, new()

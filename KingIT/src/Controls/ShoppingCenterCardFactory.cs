@@ -5,7 +5,7 @@ using KingIT.ModelDB;
 
 namespace KingIT.Controls;
 
-public class ShoppingCenterCardFactory: CardFactory
+public class ShoppingCenterCardFactory : CardFactory
 {
     public override IViewCard Make(object model)
     {

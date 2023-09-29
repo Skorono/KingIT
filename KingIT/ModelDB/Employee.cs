@@ -20,7 +20,7 @@ public class Employee : IUser
 
     [Phone] public string? PhoneNumber { get; set; }
 
-    public byte[]? Photo { get; set; }
+    public string? Photo { get; set; }
 
     public bool Gender { get; set; }
 

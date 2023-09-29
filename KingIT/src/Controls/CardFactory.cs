@@ -6,11 +6,11 @@ namespace KingIT.Controls;
 
 public abstract class CardFactory
 {
+    protected Type _cardViewType;
     protected RoutedEventHandler? _doubleClickEvent;
-    protected Type _cardViewType = default;
-    
+
     public abstract IViewCard Make(object model);
-    
+
 
     /*public virtual void Update(DbSet<T> dbSource)
     {
@@ -24,14 +24,13 @@ public abstract class CardFactory
             ListArea.Add((UIElement)card);
         }
     }*/
-    
-    
+
 
     public virtual void SetCardView(IViewCard cardType)
     {
         _cardViewType = cardType.GetType();
     }
-    
+
     public virtual void SetDoubleClickEvent(RoutedEventHandler newEvent)
     {
         _doubleClickEvent = newEvent;

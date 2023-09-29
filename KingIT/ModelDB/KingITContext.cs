@@ -60,11 +60,12 @@ public class KingITContext : DbContext
         foreach (var statusField in AccountStatuses.GetFields(BindingFlags.Public | BindingFlags.Static))
             Data2.Add(new UserStatus { ID = (char)statusField.GetValue(AccountStatuses)!, Name = statusField.Name });
         modelBuilder.Entity<UserStatus>().HasData(Data2);
-        
+
         var ShoppingCentersStatus1 = typeof(ShoppingCenterStatuses);
         var Data3 = new List<ShoppingCenterStatus>();
         foreach (var statusField in ShoppingCentersStatus1.GetFields(BindingFlags.Public | BindingFlags.Static))
-            Data3.Add(new ShoppingCenterStatus() { ID = (char)statusField.GetValue(AccountStatuses)!, Name = statusField.Name });
+            Data3.Add(new ShoppingCenterStatus
+                { ID = (char)statusField.GetValue(AccountStatuses)!, Name = statusField.Name });
         modelBuilder.Entity<ShoppingCenterStatus>().HasData(Data3);
     }
 }
