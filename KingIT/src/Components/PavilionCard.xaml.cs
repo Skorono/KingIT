@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Navigation;
 
 namespace KingIT.Components;
 
@@ -11,6 +12,7 @@ public partial class PavilionCard : EntityCard
     {
         InitializeComponent();
         _Card = Card;
+        Card.DoubleClick += ToEmployeeList;
     }
 
     public int ID { get; set; }
@@ -28,5 +30,10 @@ public partial class PavilionCard : EntityCard
 
     private void SetProperty(string property)
     {
+    }
+
+    private void ToEmployeeList(object sender, EventArgs e)
+    {
+        NavigationService.GetNavigationService(this).Navigate(null);
     }
 }

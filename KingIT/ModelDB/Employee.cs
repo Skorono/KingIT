@@ -4,7 +4,7 @@ using KingIT.Interfaces;
 
 namespace KingIT.ModelDB;
 
-public class Employee : IUser
+public class Employee : Model, IUser
 {
     public int ID { get; set; }
 
@@ -28,4 +28,12 @@ public class Employee : IUser
 
     public UserStatus Status { get; set; } = null!;
     public Role Role { get; set; } = null!;
+
+    public override event UpdatedDataDelegate? Changed;
+    public override void Update()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    //public override void Update() => Changed.Invoke(BaseProvider.DbContext.Employees);
 }
