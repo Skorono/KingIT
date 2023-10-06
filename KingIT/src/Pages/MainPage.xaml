@@ -45,20 +45,7 @@
             </Grid>
         </materialDesign:Card>
         
-        <materialDesign:Card VerticalAlignment="Bottom" Height="25" Background="Beige"  Grid.Column="1" Margin="0 0 0 7">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                
-                <ComboBox Margin="1" />
-                <ComboBox Grid.Column="1" Margin="1" />
-                <ComboBox Grid.Column="2" Margin="1" />
-
-            </Grid>
-        </materialDesign:Card>
+        
 
         <Border Background="MediumSeaGreen" BorderThickness="2" BorderBrush="Black" CornerRadius="10" Grid.Row="1"
                 VerticalAlignment="Top" Margin="5" Width="90" Height="90">

@@ -7,7 +7,7 @@ namespace KingIT.Controls;
 
 public class ShoppingCenterCardFactory : CardFactory
 {
-    public override IViewCard Make(object model)
+    public override IViewCard? Make(object model)
     {
         var viewcontroller = new ViewController<ShoppingСenter>((ShoppingСenter)model);
         var card = (IViewCard)Activator.CreateInstance(_cardViewType)!;

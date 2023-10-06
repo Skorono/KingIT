@@ -1,11 +1,10 @@
-﻿using KingIT.Controls;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace KingIT.Interfaces;
 
 public abstract class Model
 {
-    public ModelManager<Model> _manager;
+    //public ModelManager<Model> _manager;
 
     public delegate void UpdatedDataDelegate(DbSet<Model> data);
 

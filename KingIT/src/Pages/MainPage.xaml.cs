@@ -10,7 +10,7 @@ namespace KingIT.Pages;
 public partial class MainPage : Page
 {
     private CardFactory? _currentFactory;
-    private readonly CardList? _entityCardList;
+    private readonly ICardList? _entityCardList;
     private ViewController<IUser> _user;
 
     public MainPage(ViewController<IUser> user)
@@ -20,8 +20,8 @@ public partial class MainPage : Page
         _currentFactory = new ShoppingCenterCardFactory();
         _currentFactory.SetDoubleClickEvent(ToEmployeeList);
         _currentFactory.SetCardView(new ShoppingCenterCard());
-        _entityCardList = new CardList(_currentFactory);
-        ListBorder.Child = _entityCardList;
+        _entityCardList = new ShoppingCenterList();
+        ListBorder.Child = _entityCardList as UIElement;
     }
 
     private void Refresh(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ public partial class MainPage : Page
         _currentFactory = new EmployeeCardFactory();
         _currentFactory.SetCardView(new UserProfileCard());
         _currentFactory.SetDoubleClickEvent(ToAuthPage);
-        _entityCardList.SetCardFactory(_currentFactory);
+        //_entityCardList.SetCardFactory(_currentFactory);
         Refresh(this, null);
     }
 
