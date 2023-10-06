@@ -67,5 +67,14 @@ public class KingITContext : DbContext
             Data3.Add(new ShoppingCenterStatus
                 { ID = (char)statusField.GetValue(AccountStatuses)!, Name = statusField.Name });
         modelBuilder.Entity<ShoppingCenterStatus>().HasData(Data3);
+
+        modelBuilder.Entity<Employee>();
+        modelBuilder.Entity<Pavilion>();
+        modelBuilder.Entity<PavilionStaff>();
+        modelBuilder.Entity<PavilionStaff>().HasKey(u => new {u.PavilionID, u.EmployeeID});
+        modelBuilder.Entity<Rental>();
+        modelBuilder.Entity<Rent>();
+        modelBuilder.Entity<ShoppingСenter>();
+        modelBuilder.Entity<Town>();
     }
 }
