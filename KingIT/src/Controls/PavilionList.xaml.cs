@@ -4,18 +4,18 @@ using KingIT.Components;
 
 namespace KingIT.Controls;
 
-public partial class ShoppingCenterList : EntityList
+public partial class PavilionList : EntityList
 {
-    public ShoppingCenterCard CardView
+    public PavilionCard CardView
     {
         set => _listCardFactory.SetCardView(value);
     }
 
-    public ShoppingCenterList()
+    public PavilionList()
     {
         InitializeComponent();
-        _listCardFactory = new ShoppingCenterCardFactory();
-        CardView = new ShoppingCenterCard();
+        _listCardFactory = new PavilionCardFactory();
+        CardView = new PavilionCard();
         _listCardFactory.SetDoubleClickEvent(OnCardDoubleClick);
     }
 

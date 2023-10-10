@@ -10,31 +10,27 @@ namespace KingIT.Pages;
 public partial class MainPage : Page
 {
     private CardFactory? _currentFactory;
-    private readonly ICardList? _entityCardList;
+    private EntityList? _entityCardList;
     private ViewController<IUser> _user;
 
     public MainPage(ViewController<IUser> user)
     {
         InitializeComponent();
         _user = user;
-        _currentFactory = new ShoppingCenterCardFactory();
-        _currentFactory.SetDoubleClickEvent(ToEmployeeList);
-        _currentFactory.SetCardView(new ShoppingCenterCard());
-        _entityCardList = new ShoppingCenterList();
-        ListBorder.Child = _entityCardList as UIElement;
+        ChangeFactory(new ShoppingCenterList());
     }
 
     private void Refresh(object sender, RoutedEventArgs e)
     {
-        switch (_currentFactory.GetType().Name)
+        switch (_entityCardList.GetType().Name)
         {
-            case ("EmployeeCardFactory"):
+            case ("EmployeeCardList"):
             {
                 _entityCardList.Update(BaseProvider.DbContext.Employees.ToList());
                 break;
             }
             
-            case ("ShoppingCenterCardFactory"):
+            case ("ShoppingCenterList"):
             {
                 _entityCardList.Update(BaseProvider.DbContext.ShoppingCenters.ToList());
                 break;
@@ -44,6 +40,30 @@ public partial class MainPage : Page
         //EmpList.Update(BaseProvider.DbContext.Employees);
     }
 
+    private void Clicked()
+    {
+        switch (_entityCardList.GetType().Name)
+        {
+            case ("EmployeeCardList"):
+            {
+                ChangeFactory(new ShoppingCenterList());
+                break;
+            }
+            case ("ShoppingCenterList"):
+            {
+                ChangeFactory(new EmployeeList());
+                break;
+            }
+        }
+    }
+
+    private void ChangeFactory(EntityList entity)
+    {
+        _entityCardList = entity;
+        _entityCardList.CardClicked += Clicked;
+        ListBorder.Child = _entityCardList as UIElement;
+        ListBorder.UpdateLayout();
+    }
     private void ToCardPage(object sender, RoutedEventArgs e)
     {
         NavigationService.Navigate(null);

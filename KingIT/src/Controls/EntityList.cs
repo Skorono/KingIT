@@ -13,5 +13,8 @@ public abstract class EntityList: UserControl, ICardList
     {
     }
 
-    public abstract void OnCardDoubleClick(object sender, EventArgs e);
+    public virtual void OnCardDoubleClick(object sender, EventArgs e)
+    {
+        CardClicked.Invoke();
+    }
 }
