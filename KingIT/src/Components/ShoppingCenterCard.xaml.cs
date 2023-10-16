@@ -13,10 +13,28 @@ public partial class ShoppingCenterCard : EntityCard
 
     public override string? Name
     {
-        set
-        {
-            var NameField = (TextBlock?)UIHelper.FindUid(Card.Children, "ShoppingCenterName");
-            if (NameField != null) NameField.Text = value;
-        }
+        set => _SetNamedCardField("ShoppingCenterName", value);
     }
+
+    public int Cost
+    {
+        set => _SetNamedCardField("Cost", value.ToString());
+    }
+
+    public float AddedCoefficient
+    {
+        set => _SetNamedCardField("AddedCoefficient", value.ToString());
+
+    }
+
+    public int FloorsCount
+    {
+        set => _SetNamedCardField("FloorsCount", value.ToString());
+    }
+
+    private void _SetNamedCardField(string FieldName, string value)
+    {
+        var NameField = (TextBlock?)UIHelper.FindUid(Card.Children, FieldName);
+        if (NameField != null) NameField.Text = (string)value;
+    } 
 }

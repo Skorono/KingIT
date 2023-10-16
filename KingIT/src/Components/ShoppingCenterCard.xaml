@@ -11,9 +11,13 @@
     <Grid>
         <WpfLibrary:Item x:Name="Card" Width="280" Height="300">
             <StackPanel>
-                <TextBlock Uid="ShoppingCenterName" />
-                <TextBlock Uid="Status" />
-                <TextBlock />
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Left">Название:</TextBlock>
+                    <TextBlock DockPanel.Dock="Right" Margin="5 0 0 0" FontSize="14" FontWeight="Bold" Uid="ShoppingCenterName"/>
+                </DockPanel>
+                <TextBlock Uid="Cost"/>
+                <TextBlock Uid="AddedCoefficient" />
+                <TextBlock Uid="FloorsCount" />
             </StackPanel>
         </WpfLibrary:Item>
     </Grid>

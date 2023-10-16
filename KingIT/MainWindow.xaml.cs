@@ -25,17 +25,18 @@ public partial class MainWindow : Window
         RegistrationArea.OnRegistrationClick += ToRegistrationPage;
         RegistrationArea.OnAuthEvent += AuthAction;
         RegistrationArea.OnPasswordEnter += OnPasswordChanged;
+        RegistrationArea.Click += ToRegistrationPage;
     }
 
     public void ToRegistrationPage(object sender, RoutedEventArgs e)
     {
-        //NavigationService.GetNavigationService(this).Navigate();
+        MessageBox.Show("Регистрация не запланирована :)");
     }
 
     private Employee? GetEmployee()
     {
         return BaseProvider.DbContext.Employees.SingleOrDefault(emp =>
-            emp.Email == RegistrationArea.Login && emp.Password == RegistrationArea.Password);
+            emp.Email == RegistrationArea.Login.ToLower() && emp.Password == RegistrationArea.Password);
     }
 
     private bool UserExists()
