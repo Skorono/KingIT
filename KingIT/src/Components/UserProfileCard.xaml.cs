@@ -1,5 +1,4 @@
-﻿using System.Windows.Controls;
-using ViewControls;
+﻿using System.Linq;
 
 namespace KingIT.Components;
 
@@ -14,14 +13,38 @@ public partial class UserProfileCard : EntityCard
         _Card = Card;
     }
 
-    public int ID { get; set; }
-
     public override string? Name
     {
-        set
-        {
-            var NameField = (TextBlock?)UIHelper.FindUid(Card.Children, "UserName");
-            if (NameField != null) NameField.Text = value;
-        }
+        set => _SetNamedCardField("UserName", value!);
+    }
+
+    public string? LastName
+    {
+        set => _SetNamedCardField("UserLastName", value!);
+    }
+    
+    public string? MiddleName
+    {
+        set => _SetNamedCardField("UserMiddleName", value!);
+    }
+
+    public string? Email
+    {
+        set => _SetNamedCardField("UserEmail", value!);
+    }
+    
+    public string? Password
+    {
+        set => _SetNamedCardField("UserPassword", value!);
+    }
+
+    public char RoleID
+    {
+        set => _SetNamedCardField("UserRole", BaseProvider.DbContext.Roles.Where(r => r.ID == value).First().ToString());
+    }
+
+    public string? PhoneNumber
+    {
+        set => _SetNamedCardField("UserPhoneNumber", value!);
     }
 }

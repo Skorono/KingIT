@@ -24,7 +24,7 @@ public partial class MainPage : Page
     {
         switch (_entityCardList.GetType().Name)
         {
-            case ("EmployeeCardList"):
+            case ("EmployeeList"):
             {
                 _entityCardList.Update(BaseProvider.DbContext.Employees.ToList());
                 break;

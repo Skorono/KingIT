@@ -1,7 +1,4 @@
-﻿using System.Windows.Controls;
-using ViewControls;
-
-namespace KingIT.Components;
+﻿namespace KingIT.Components;
 
 public partial class ShoppingCenterCard : EntityCard
 {
@@ -31,10 +28,4 @@ public partial class ShoppingCenterCard : EntityCard
     {
         set => _SetNamedCardField("FloorsCount", value.ToString());
     }
-
-    private void _SetNamedCardField(string FieldName, string value)
-    {
-        var NameField = (TextBlock?)UIHelper.FindUid(Card.Children, FieldName);
-        if (NameField != null) NameField.Text = (string)value;
-    } 
 }

@@ -15,10 +15,18 @@
                     <RowDefinition />
                     <RowDefinition Height=".43*" />
                 </Grid.RowDefinitions>
-
-                <TextBlock x:Uid="UserName" Text="{Binding Path=this.Name, UpdateSourceTrigger=PropertyChanged}"
-                           FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" />
-                
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock x:Uid="UserName" Text="{Binding Path=this.Name, UpdateSourceTrigger=PropertyChanged}"
+                               FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" />
+                        <TextBlock x:Uid="UserLastName" />
+                        <TextBlock x:Uid="UserMiddleName" />
+                        <TextBlock x:Uid="UserEmail" />
+                        <TextBlock x:Uid="UserPassword" />
+                        <TextBlock x:Uid="UserRole" />
+                        <TextBlock x:Uid="UserPhoneNumber" />
+                    </StackPanel>
+                </ScrollViewer>
                 <Button x:Uid="DeleteItemBtn" Background="White" BorderThickness="0" Grid.Row="1" HorizontalAlignment="Right" Width="25" Height="25" Margin="0">
                     <Image Source="../../Assets/Images/deleteIcon.png" />
                 </Button>
