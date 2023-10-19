@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Windows;
 
 namespace KingIT.Components;
 
@@ -14,6 +15,17 @@ public partial class ShoppingCenterCard : EntityCard
     {
         set => _SetNamedCardField("ShoppingCenterName", value);
     }
+
+    protected override void DeleteItem(object sender, RoutedEventArgs e)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void ToEditPage(object sender, RoutedEventArgs e)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public int StatusID { get; set; }
 
     public string StatusName

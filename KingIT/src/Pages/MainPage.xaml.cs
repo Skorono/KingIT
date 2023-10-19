@@ -75,10 +75,6 @@ public partial class MainPage : Page
         ListBorder.Child = _entityCardList as UIElement;
         ListBorder.UpdateLayout();
     }
-    private void ToCardPage(object sender, RoutedEventArgs e)
-    {
-        NavigationService.Navigate(null);
-    }
 
     private void ToEmployeeList(object sender, RoutedEventArgs e)
     {

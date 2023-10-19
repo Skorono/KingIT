@@ -18,7 +18,7 @@ public class EmployeeCardFactory : CardFactory
         var card = (EntityCard)Activator.CreateInstance(_cardViewType)!;
         viewcontroller.SetView((UserControl)card);
         card.ItemCard.DoubleClick += _doubleClickEvent;
-        card.OnEdit = OnEdit;
+        card.OnEdit = _onEdit;
         return card;
     }
 }

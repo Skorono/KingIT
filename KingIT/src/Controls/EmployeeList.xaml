@@ -20,7 +20,7 @@
             </Grid.ColumnDefinitions>
             <TextBox x:Name="SearchText" />
             <Button Grid.Column="1" BorderBrush="White" BorderThickness="0" Click="OnSearch">
-                <Image Source="../../Assets/Images/png-transparent-computer-icons-symbol-symbol-miscellaneous-angle-text.png" />
+                <Image Source="../../Assets/Images/search_icon.png" />
             </Button>
         </Grid>
         <ViewControl:UIArea Grid.Row="1" x:Name="Area" />

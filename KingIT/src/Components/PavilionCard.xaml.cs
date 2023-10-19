@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Navigation;
 
 namespace KingIT.Components;
@@ -26,6 +27,16 @@ public partial class PavilionCard : EntityCard
     public override string? Name
     {
         set => throw new NotImplementedException();
+    }
+
+    protected override void DeleteItem(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void ToEditPage(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 
     private void SetProperty(string property)

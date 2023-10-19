@@ -42,6 +42,8 @@
         <None Remove="Assets\deleteIcon.png" />
         <None Remove="Assets\Images\png-transparent-computer-icons-symbol-symbol-miscellaneous-angle-text.png" />
         <Resource Include="Assets\Images\png-transparent-computer-icons-symbol-symbol-miscellaneous-angle-text.png" />
+        <None Remove="Assets\Images\search_icon.png" />
+        <Resource Include="Assets\Images\search_icon.png" />
     </ItemGroup>
 
     <ItemGroup>

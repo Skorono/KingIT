@@ -40,4 +40,12 @@ public abstract class EntityCard : UserControl, IViewCard
     }
     
     protected Item _Card;
+
+    protected abstract void DeleteItem(object sender, RoutedEventArgs e);
+
+    protected abstract void ToEditPage(object sender, RoutedEventArgs e);
+
+
+
+
 }

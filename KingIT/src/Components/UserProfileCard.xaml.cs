@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using KingIT.EntitiesStatus;
+using KingIT.Pages;
 using ViewControls;
 
 namespace KingIT.Components;
@@ -55,14 +57,7 @@ public partial class UserProfileCard : EntityCard
         set => _SetNamedCardField("UserPhoneNumber", value!);
     }
 
-    private void ToEditPage(object sender, RoutedEventArgs e)
-    {
-        OnEdit.Invoke(this, null);
-        //NavigationService.GetNavigationService(this).Navigate(new UserEditingPage());
-    }
-
-
-    private void DeleteItem(object sender, RoutedEventArgs e)
+    protected override void DeleteItem(object sender, RoutedEventArgs e)
     {
         MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить этого пользователя?", "Удаление",
             MessageBoxButton.OKCancel);
@@ -73,5 +68,11 @@ public partial class UserProfileCard : EntityCard
             BaseProvider.DbContext.Employees.Update(emp);
             BaseProvider.DbContext.SaveChangesAsync();
         }
+    }
+
+    protected override void ToEditPage(object sender, RoutedEventArgs e)
+    {
+        NavigationService.GetNavigationService(this).Navigate(new UserEditingPage(
+            BaseProvider.DbContext.Employees.First(emp => emp.ID == ID)));
     }
 }
