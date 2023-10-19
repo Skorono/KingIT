@@ -20,6 +20,7 @@
                         <TextBlock DockPanel.Dock="Left">Название:</TextBlock>
                         <TextBlock DockPanel.Dock="Right" Margin="5 0 0 0" FontSize="14" FontWeight="Bold" Uid="ShoppingCenterName"/>
                     </DockPanel>
+                    <TextBlock Uid="StatusName" Text="{Binding Source=StatusName}"/>
                     <TextBlock Uid="Cost"/>
                     <TextBlock Uid="AddedCoefficient" />
                     <TextBlock Uid="FloorsCount" />

@@ -1,4 +1,6 @@
-﻿namespace KingIT.Components;
+﻿using System.Linq;
+
+namespace KingIT.Components;
 
 public partial class ShoppingCenterCard : EntityCard
 {
@@ -12,7 +14,13 @@ public partial class ShoppingCenterCard : EntityCard
     {
         set => _SetNamedCardField("ShoppingCenterName", value);
     }
+    public int StatusID { get; set; }
 
+    public string StatusName
+    {
+        get => BaseProvider.DbContext.ShoppingCenterStatuses.First(status => status.ID == StatusID).Name;
+    }
+    
     public int Cost
     {
         set => _SetNamedCardField("Cost", value.ToString());

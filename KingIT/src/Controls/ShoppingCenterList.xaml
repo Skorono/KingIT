@@ -8,11 +8,15 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <UniformGrid Columns="3" Height="40">
-            <ComboBox />
-            <ComboBox />
-            <ComboBox />
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <UniformGrid HorizontalAlignment="Right" Columns="3" Height="40" >
+            <ComboBox x:Name="TownSelecter" SelectionChanged="SortTown" />
+            <ComboBox x:Name="StatusSelecter" SelectionChanged="SortStatus" />
         </UniformGrid>
-        <ViewControl:UIArea x:Name="Area" />
+        <ViewControl:UIArea x:Name="Area" Grid.Row="1"/>
     </Grid>
 </local:EntityList>

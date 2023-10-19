@@ -25,6 +25,8 @@ public class Employee : Model, IUser
     public bool Gender { get; set; }
 
     public char RoleID { get; set; }
+    public char StatusID { get; set; }
+
 
     public UserStatus Status { get; set; } = null!;
     public Role Role { get; set; } = null!;

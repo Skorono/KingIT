@@ -17,7 +17,18 @@ public partial class MainPage : Page
     {
         InitializeComponent();
         _user = user;
-        ChangeFactory(new ShoppingCenterList());
+        switch (_user.Model.RoleID)
+        {
+            case (UserTypes.Administrator):
+                ChangeFactory(new EmployeeList());
+                break;
+            case (UserTypes.ManagerC):
+                ChangeFactory(new ShoppingCenterList());
+                break;
+            default:
+                MessageBox.Show("Роль не предусмотрена заданием");
+                break;
+        }
     }
 
     private void Refresh(object sender, RoutedEventArgs e)

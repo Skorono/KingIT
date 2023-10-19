@@ -8,6 +8,9 @@ public class ShoppingСenter
     public float AddedCoefficient { get; set; }
     public int FloorsCount { get; set; }
     public string? Photo { get; set; }
+    public int TownID { get; set; }
+    public char StatusID { get; set; }
+
 
     public ShoppingCenterStatus Status { get; set; } = null!;
     public Town Town { get; set; } = null!;

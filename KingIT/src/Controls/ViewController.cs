@@ -9,7 +9,7 @@ public class ViewController<T>
         Model = model;
     }
 
-    protected T Model { get; set; }
+    public T Model { get; set; }
 
     public void SetView(Control view)
     {

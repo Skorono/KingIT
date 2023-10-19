@@ -8,7 +8,21 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ViewControl:UIArea x:Name="Area" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width=".1*" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="SearchText" />
+            <Button Grid.Column="1" BorderBrush="White" BorderThickness="0" Click="OnSearch">
+                <Image Source="../../Assets/Images/png-transparent-computer-icons-symbol-symbol-miscellaneous-angle-text.png" />
+            </Button>
+        </Grid>
+        <ViewControl:UIArea Grid.Row="1" x:Name="Area" />
     </Grid>
 </local:EntityList>
