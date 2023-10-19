@@ -13,6 +13,7 @@ public abstract class EntityCard : UserControl, IViewCard
 {
     public int ID { get; set; }
 
+    public EventHandler? OnEdit;
     public Item ItemCard => _Card;
     public abstract string? Name { set; }
 

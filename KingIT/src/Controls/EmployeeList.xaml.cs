@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Navigation;
 using KingIT.Components;
 using KingIT.ModelDB;
-using KingIT.Pages;
 
 namespace KingIT.Controls;
 
@@ -28,8 +26,6 @@ public partial class EmployeeList: EntityList
     {
         Area.Clear();
         data.ForEach(d => Area.Add(_listCardFactory.Make(d) as UIElement));
-        Area.ItemList.ForEach(i => (i as UserProfileCard).OnEdit += (sender, args) =>
-            NavigationService.GetNavigationService(this).Navigate(new UserEditingPage()));
     }
 
     /*public override void OnCardDoubleClick(object sender, EventArgs e)

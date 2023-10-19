@@ -112,6 +112,6 @@ public partial class MainWindow : Window
             default: return;
         }
 
-        if (userController != null) MainFrame.Navigate(new MainPage(userController));
+        if (userController != null) MainFrame.NavigationService.Navigate(new MainPage(userController));
     }
 }

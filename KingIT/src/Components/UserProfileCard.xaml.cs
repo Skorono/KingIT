@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using KingIT.EntitiesStatus;
@@ -12,7 +11,6 @@ namespace KingIT.Components;
 /// </summary>
 public partial class UserProfileCard : EntityCard
 {
-    public event EventHandler OnEdit;
     public UserProfileCard()
     {
         InitializeComponent();

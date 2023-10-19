@@ -8,6 +8,8 @@ public abstract class CardFactory
 {
     protected Type _cardViewType;
     protected RoutedEventHandler? _doubleClickEvent;
+    protected EventHandler _onEdit;
+    public EventHandler? OnEdit;
 
     public abstract IViewCard Make(object model);
 
@@ -34,5 +36,10 @@ public abstract class CardFactory
     public virtual void SetDoubleClickEvent(RoutedEventHandler newEvent)
     {
         _doubleClickEvent = newEvent;
+    }
+
+    public virtual void SetOnEditAction(EventHandler action)
+    {
+        _onEdit = action;
     }
 }

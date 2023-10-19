@@ -15,9 +15,10 @@ public class EmployeeCardFactory : CardFactory
     public override IViewCard Make(object model)
     {
         var viewcontroller = new ViewController<Employee>((Employee)model);
-        var card = (IViewCard)Activator.CreateInstance(_cardViewType)!;
+        var card = (EntityCard)Activator.CreateInstance(_cardViewType)!;
         viewcontroller.SetView((UserControl)card);
         card.ItemCard.DoubleClick += _doubleClickEvent;
+        card.OnEdit = OnEdit;
         return card;
     }
 }
