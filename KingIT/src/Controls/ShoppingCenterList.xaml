@@ -4,6 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:KingIT.Controls"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:ViewControl="clr-namespace:ViewControls.Controls;assembly=ViewControls"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -13,9 +21,9 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <UniformGrid HorizontalAlignment="Right" Columns="3" Height="40" >
-            <ComboBox x:Name="TownSelecter" SelectionChanged="SortTown" />
-            <ComboBox x:Name="StatusSelecter" SelectionChanged="SortStatus" />
+        <UniformGrid Columns="3" Height="40" >
+            <ComboBox x:Name="TownSelecter"  HorizontalAlignment="Right"  Width="150" SelectionChanged="SortTown"  MaterialDesign:HintAssist.Hint="Сортировать по городу"/>
+            <ComboBox x:Name="StatusSelecter"  HorizontalAlignment="Right"  Width="150" SelectionChanged="SortStatus" MaterialDesign:HintAssist.Hint="Сортировать по статусу"/>
         </UniformGrid>
         <ViewControl:UIArea x:Name="Area" Grid.Row="1"/>
     </Grid>
