@@ -1,5 +1,8 @@
 ﻿using System.Linq;
 using System.Windows;
+using System.Windows.Navigation;
+using KingIT.EntitiesStatus;
+using KingIT.Pages;
 
 namespace KingIT.Components;
 
@@ -18,12 +21,23 @@ public partial class ShoppingCenterCard : EntityCard
 
     protected override void DeleteItem(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить этот торговый центр?", "Удаление",
+            MessageBoxButton.OKCancel);
+        if (result == MessageBoxResult.OK)
+        {
+            var center = BaseProvider.DbContext.ShoppingCenters.First(c => c.ID == ID);
+            center.StatusID =
+                BaseProvider.DbContext.ShoppingCenterStatuses.First(status =>
+                    status.ID == ShoppingCenterStatuses.Deleted).ID;
+            BaseProvider.DbContext.ShoppingCenters.Update(center);
+            BaseProvider.DbContext.SaveChangesAsync();
+        }
     }
 
     protected override void ToEditPage(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        NavigationService.GetNavigationService(this)
+            .Navigate(new ShoppingCenterEditingPage());
     }
 
     public int StatusID { get; set; }

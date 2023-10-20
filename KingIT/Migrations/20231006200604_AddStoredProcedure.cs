@@ -27,6 +27,32 @@ namespace KingIT.Migrations
 	            SET 
 		            StatusID = (SELECT ID FROM PavilionStatuses WHERE [Name] = 'Free')
             END;");
+            
+            migrationBuilder.Sql(@"
+            USE KingITCompany
+
+            GO
+            CREATE TRIGGER UPDATE_DELETE_BOOKED_PAVILIONS
+            ON dbo.ShoppingCenters
+            AFTER UPDATE
+            AS
+            BEGIN 
+            IF ((SELECT StatusID FROM inserted) = 'P') AND ((SELECT StatusID FROM Pavilions WHERE ID = (SELECT ID FROM inserted)) = 'B')
+	            ROLLBACK TRANSACTION
+            END");
+            
+            migrationBuilder.Sql(@"
+            USE KingITCompany
+
+            GO
+            CREATE TRIGGER UPDATE_DELETE_BOOKED_OR_RENTED_PAVILIONS
+            ON dbo.Pavilions
+            AFTER UPDATE
+            AS
+            BEGIN
+            IF (SELECT StatusID FROM deleted) IN ('R', 'B')
+	            ROLLBACK TRANSACTION
+            END");
         }
 
         /// <inheritdoc />

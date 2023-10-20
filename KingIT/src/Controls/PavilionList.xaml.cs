@@ -10,13 +10,16 @@ public partial class PavilionList : EntityList
     {
         set => _listCardFactory.SetCardView(value);
     }
+    
+    public int ShoppingCenterID { private set; get; }
 
-    public PavilionList()
+    public PavilionList(int id)
     {
         InitializeComponent();
         _listCardFactory = new PavilionCardFactory();
         CardView = new PavilionCard();
         _listCardFactory.SetDoubleClickEvent(OnCardDoubleClick);
+        ShoppingCenterID = id;
     }
 
 

@@ -6,7 +6,8 @@ namespace KingIT.Controls;
 
 public abstract class EntityList: UserControl, ICardList
 {
-    public event Action CardClicked;
+    public delegate void ClickAction(object sender);
+    public event ClickAction CardClicked;
 
     protected CardFactory _listCardFactory { get; set; }
     
@@ -16,6 +17,6 @@ public abstract class EntityList: UserControl, ICardList
 
     public virtual void OnCardDoubleClick(object sender, EventArgs e)
     {
-        CardClicked.Invoke();
+        CardClicked.Invoke(this);
     }
 }

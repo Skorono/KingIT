@@ -19,14 +19,17 @@
                 <StackPanel>
                     <TextBlock Uid="PavilionName" />
                     <TextBlock Uid="Status" />
-                    <TextBlock />
+                    <TextBlock Uid="Square" />
+                    <TextBlock Uid="AddedCoefficient" />
+                    <TextBlock Uid="Cost" />
+                    <TextBlock Uid="FloorNumber" />
                 </StackPanel>
                 
-                <Button x:Uid="DeleteItemBtn" Background="White" BorderThickness="0" Grid.Row="1" HorizontalAlignment="Right" Width="25" Height="25" Margin="0">
+                <Button x:Uid="DeleteItemBtn" Click="DeleteItem" Background="White" BorderThickness="0" Grid.Row="1" HorizontalAlignment="Right" Width="25" Height="25" Margin="0">
                     <Image Source="../../Assets/Images/deleteIcon.png" />
                 </Button>
                 
-                <Button x:Uid="EditItemBtn" Background="White" BorderThickness="0" Grid.Row="1" HorizontalAlignment="Left" Width="25" Height="25" Margin="0">
+                <Button x:Uid="EditItemBtn" Click="ToEditPage" Background="White" BorderThickness="0" Grid.Row="1" HorizontalAlignment="Left" Width="25" Height="25" Margin="0">
                     <Image Source="../../Assets/Images/png-transparent-computer-icons-symbol-symbol-miscellaneous-angle-text.png" />
                 </Button>
             </Grid>

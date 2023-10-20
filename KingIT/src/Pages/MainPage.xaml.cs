@@ -46,12 +46,18 @@ public partial class MainPage : Page
                 _entityCardList.Update(BaseProvider.DbContext.ShoppingCenters.ToList());
                 break;
             }
+            
+            case ("PavilionList"):
+            {
+                _entityCardList.Update(BaseProvider.DbContext.Pavilions.ToList());
+                break;
+            }
 
         }
         //EmpList.Update(BaseProvider.DbContext.Employees);
     }
 
-    private void Clicked()
+    private void Clicked(object sender)
     {
         switch (_entityCardList.GetType().Name)
         {
@@ -62,7 +68,7 @@ public partial class MainPage : Page
             }
             case ("ShoppingCenterList"):
             {
-                ChangeFactory(new EmployeeList());
+                ChangeFactory(new  PavilionList(1));
                 break;
             }
         }
