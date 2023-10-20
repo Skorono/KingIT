@@ -15,6 +15,7 @@ public partial class PavilionCard : EntityCard
     {
         InitializeComponent();
         _Card = Card;
+        Card.Ima
     }
     public char StatusID { get; set; }
     public int ID { get; set; }

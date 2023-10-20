@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace KingIT.ModelDB;
+﻿namespace KingIT.ModelDB;
 
 public class Pavilion
 {
@@ -15,11 +13,4 @@ public class Pavilion
 
     public PavilionStatus Status { get; set; } = null!;
     public ShoppingСenter ShoppingСenter { get; set; } = null!;
-
-    [NotMapped]
-    public string StatusName
-    {
-        get => Status.Name;
-        set => Status.Name = value;
-    }
 }
